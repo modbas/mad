@@ -1,0 +1,40 @@
+#
+# Mini-Auto-Drive MAD
+#
+# Copyright (C) 2020 Frank Traenkle
+# http://www.modbas.de
+#
+# DL Move
+#
+# This file is part of Mini-Auto-Drive.
+#
+# Mini-Auto-Drive is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# Mini-Auto-Drive is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with Mini-Auto-Drive.  If not, see <http://www.gnu.org/licenses/>.
+#
+
+
+# manipulations signals
+#   u[0] = pedals [-1,1]
+#   u[1] = steering [-1,1]
+float32[] u
+---
+# states
+#   x[0] = v speed [m/s]
+#   x[1] = x driven distance / arc length [m]
+#   x[2] = xc arc length of reference point [m]
+#   x[3] = dpsi orientation to reference path [rad]
+#   x[4] = d distance to reference path [m] - positive if left, negative if right
+#   x[5...44] = kappa curvature from now to the future [1/m]
+float32[] x
+# flag indicating crash
+bool crash

@@ -1,0 +1,32 @@
+#
+# Mini-Auto-Drive MAD
+#
+# Copyright (C) 2020 Frank Traenkle
+# http://www.modbas.de
+#
+# MAD Access Lock
+#
+# This file is part of Mini-Auto-Drive.
+#
+# Mini-Auto-Drive is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# Mini-Auto-Drive is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with Mini-Auto-Drive.  If not, see <http://www.gnu.org/licenses/>.
+#
+
+uint32 pin
+uint8 carid
+---
+uint8 lockResponse
+uint8 LOCKRESPONSE_GRANTED = 0         # indicates, that the lock has been granted
+uint8 LOCKRESPONSE_NOTAVAILABLE = 1    # lock is not granted because car is not available
+uint8 LOCKRESPONSE_WRONGPIN = 2        # lock is not granted because of wrong PIN
+uint32 carLockKey

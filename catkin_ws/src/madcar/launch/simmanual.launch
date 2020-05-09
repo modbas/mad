@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- <rosparam param="/use_sim_time">true</rosparam> -->
+  <node pkg="madtrack" name="track" type="track_test_node" output="screen" required="true" />
+
+  <group ns="/mad/car0">
+    <param name="~carid" value="0"/>
+    <node pkg="madcar" name="sim" type="carsim_node" output="screen" required="true">
+      <rosparam param="modeltype">dynamics</rosparam>
+      <rosparam param="x0">[0.0, 1.0, 0.2, 3.141]</rosparam>
+    </node>
+    <node pkg="madcar" name="locate" type="carlocate_node" output="screen" required="true"/>
+    <!-- <node pkg="madcar" name="ekf" type="carekf_node" output="screen" required="true"/> -->
+    <node pkg="madcar" name="display" type="cardisplay_node" output="screen" required="true">
+      <rosparam param="colorRGB">[0.8, 0.8, 0.8]</rosparam>
+    </node>
+  </group>
+
+  <!-- Start rviz -->
+  <arg name="rvizconfig" default="$(find madtrack)/data/track.rviz" />
+  <node pkg="rviz" name="rviz" type="rviz" args="-d $(arg rvizconfig)" output="screen" respawn="true" />
+</launch>
