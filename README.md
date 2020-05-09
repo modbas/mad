@@ -6,6 +6,8 @@ for videos and further information.
 
 MAD is applied in teaching and research at Hochschule Heilbronn, Germany.
 
+MAD was presented on the Bundesgartenschau BUGA 2019 in Heilbronn.
+
 This repository contains template files for model-based engineering of
 software functions for self-driving cars in C++14/ROS or MATLAB(R)/Simulink(R).
 
