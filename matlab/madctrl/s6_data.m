@@ -37,7 +37,7 @@ P_sim_dt = 2e-3; % sample time of simulation
 P_display_dt = 40e-3; % sample time of display
 
 %% EKF e6
-e6_data;
+%e6_data;
 
 %% Speed Controller
 %% TODO
