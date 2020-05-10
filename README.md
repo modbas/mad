@@ -23,7 +23,7 @@ MATLAB/Simulink/Stateflow.
 
 ## MAD Features
 * Autonomous driving in 1:24 scale
-* Model-based Software Engineering of software functions for self-driving cars
+* Model-based engineering of software functions for self-driving cars
   either in C++14 or MATLAB/Simulink/Stateflow
 * Model-in-the-Loop simulation in MATLAB/Simulink/Stateflow
 * Auto-code-generation with Simulink Embedded Coder(R)
