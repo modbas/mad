@@ -9,32 +9,39 @@ MAD is applied in teaching and research at Hochschule Heilbronn, Germany.
 MAD was presented on the Bundesgartenschau BUGA 2019 in Heilbronn.
 
 This repository contains template files for model-based engineering of
-software functions for self-driving cars in C++14/ROS or MATLAB(R)/Simulink(R).
+software functions for self-driving cars in C++14/ROS or
+MATLAB(R)/Simulink(R)/Stateflow(R).
 
 MAD runs on ROS or ROS2 on Linux with or without Preempt-RT or
-virtually in MATLAB(R)/Simulink(R).
+virtually in MATLAB/Simulink/Stateflow.
 
 Contact frank.traenkle(at)hs-heilbronn.de for course material /
 tutorial<br/>
-in order to learn how to develop simulation models and software
-functions for self-driving in ROS / C++ / MATLAB(R)/Simulink(R).
+in order to learn how to develop simulation models and
+software functions for self-driving cars in ROS / C++14 /
+MATLAB/Simulink/Stateflow.
 
 ## MAD Features
 * Autonomous driving in 1:24 scale
+* Model-based Software Engineering of software functions for self-driving cars
+  either in C++14 or MATLAB/Simulink/Stateflow
+* Model-in-the-Loop simulation in MATLAB/Simulink/Stateflow
+* Auto-code-generation with Simulink Embedded Coder(R)
+* Software-in-the-Loop simulation in ROS or ROS2
+* Real test driving of 1:24-scale cars controlled by ROS or ROS2
 * Up to 10 cars running in parallel on 2.7 x 1.8m track
-* Model-in-the-Loop simulation
-* Software-in-the-Loop simulation
 * Topview infrared camera
 * Bluetooth LE car remote control
 * Vehicle dynamics simulation
 * Perception
 * Localization
-* Mission Control
-* Behavior Planning
-* Path Planning
-* Motion Control
-* Functional Safety for Self-Driving
-* GPLv3 License
+* Mission control by smartphones or web browsers
+* Navigation
+* Behavior planning
+* Path planning
+* Motion control
+* Functional safety for self-driving
+* GPLv3 license
 
 ## Tutorial Contents
 * Model-Based Software Engineering for Self-Driving Cars
@@ -45,9 +52,9 @@ functions for self-driving in ROS / C++ / MATLAB(R)/Simulink(R).
 * Parking Position Control
 * Path Definition and Interpolation
 * Path Following Control
-* Exercises in ROS / C++ / MATLAB(R)/Simulink(R)
+* Exercises in ROS / C++ / MATLAB/Simulink
 
-## ROS Installation
+## C++/ROS Installation
 1. Install `ros-kinetik-desktop-full` or `ros-melodic-desktop-full`<br/>
 See [http://wiki.ros.org/melodic/Installation/Ubuntu](http://wiki.ros.org/melodic/Installation/Ubuntu)
 2. Install LTTng<br/>
@@ -65,12 +72,12 @@ See [http://wiki.ros.org/melodic/Installation/Ubuntu](http://wiki.ros.org/melodi
 8. Launch Software-in-the-Loop testing environment<br/>
 `roslaunch madcar simmanual.launch`
 
-## MATLAB(R)/Simulink(R) Installation
-1. Install MATLAB(R) R2019a or later including the toolboxes<br/>
-Simulink(R), Control System Toolbox, Curve Fitting Toolbox
+## MATLAB/Simulink Installation
+1. Install MATLAB R2019a or later including the toolboxes<br/>
+Simulink, Control System Toolbox, Curve Fitting Toolbox
 2. Clone this GitHub repository<br/>
 `git clone https://github.com/modbas/mad`
-3. Start MATLAB(R)
+3. Start MATLAB
 4. Add `mad/matlab/realtime_pacer` to `matlabpath`<br/>
 `addpath mad/matlab/realtime_pacer`<br/>
 `savepath`
