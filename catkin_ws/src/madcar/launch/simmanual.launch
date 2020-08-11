@@ -5,12 +5,10 @@
 
   <group ns="/mad/car0">
     <param name="~carid" value="0"/>
-<!--
     <node pkg="madcar" name="sim" type="carsim_node" output="screen" required="true">
       <rosparam param="modeltype">dynamics</rosparam>
       <rosparam param="x0">[0.0, 1.0, 0.2, 3.141]</rosparam>
     </node>
--->
     <node pkg="madcar" name="locate" type="carlocate_node" output="screen" required="true"/>
     <!-- <node pkg="madcar" name="ekf" type="carekf_node" output="screen" required="true"/> -->
     <node pkg="madcar" name="display" type="cardisplay_node" output="screen" required="true">

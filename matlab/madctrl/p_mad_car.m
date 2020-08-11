@@ -87,7 +87,7 @@ P_p_delta_Tt = P_p_uTt; % servo dead time [ s ]
 
 %% Computer vision
 P_p_output_Tt = 40e-3; % image processing dead time [ s ]
-P_p_sstd = 3e-3; % [ m ];
+P_p_sstd = 1e-3; % [ m ];
 P_p_psistd = deg2rad(1); % [ rad ];
 %P_p_vstd = 0.3; % [ m/s ];
 
@@ -99,9 +99,9 @@ P_p_v0 = 0.0;   % speed [ m/s ]
 P_p_s10 = 1.7;  % s1 position [ m ] Carid 0
 P_p_s20 = 1.7;  % s2 position [ m ] Carid 0
 P_p_s11 = 0.4;  % s1 position [ m ] Carid 1
-P_p_s21 = 0.3;  % s2 position [ m ] Carid 1
+P_p_s21 = 0.1;  % s2 position [ m ] Carid 1
 P_p_s12 = 1.3;  % s1 position [ m ] Carid 2
-P_p_s22 = 0.4;  % s2 position [ m ] Carid 2
+P_p_s22 = 0.1;  % s2 position [ m ] Carid 2
 P_p_psi0 = pi; % yaw angle [ rad ]
 P_p_psi1 = 0; % yaw angle [ rad ]
 P_p_psi2 = 0; % yaw angle [ rad ]

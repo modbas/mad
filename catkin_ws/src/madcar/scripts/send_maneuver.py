@@ -39,10 +39,11 @@ def main():
     splineCoefs1 = waypointsResp.splineCoefs1,
     splineCoefs2 = waypointsResp.splineCoefs2,
     periodic = True,
-    vmax = 1, # reference speed
+    vmax = 1.0, # reference speed
     type = DriveManeuver.TYPE_PATHFOLLOW,
     #type = DriveManeuver.TYPE_PARK,
-    xManeuverEnd = 0.0, # target parking position
+    #type = DriveManeuver.TYPE_HALT,
+    xManeuverEnd = -1.0, # target parking position
     lapCount = 0,
     disableLaneMonitor = False
     )
