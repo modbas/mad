@@ -7,10 +7,16 @@
 #
 
 import rospy
+import sys
 from madmsgs.srv import TrackGetWaypoints
 from madmsgs.msg import DriveManeuver
 
 def main():
+  if len(sys.argv) > 1:
+    vmax = float(sys.argv[1])
+  else:
+    vmax = 0.0
+  print(vmax)
   # create ROS node
   rospy.init_node('send_maneuver')
   # wait for track_node
@@ -18,7 +24,7 @@ def main():
   # register service client
   getWayPoints = rospy.ServiceProxy('/mad/get_waypoints', TrackGetWaypoints)
   # register DriveManeuver publisher
-  maneuverPub = rospy.Publisher("/mad/car0/navi/maneuver", DriveManeuver, queue_size=5)
+  maneuverPub = rospy.Publisher("/mad/car0/navi/maneuver", DriveManeuver, queue_size=5, latch=True)
   # call /mad/get_waypoints service of track_node
   waypointsResp = getWayPoints(
     dx = 0.1, # sampling stepsize
@@ -39,7 +45,7 @@ def main():
     splineCoefs1 = waypointsResp.splineCoefs1,
     splineCoefs2 = waypointsResp.splineCoefs2,
     periodic = True,
-    vmax = 1.0, # reference speed
+    vmax = vmax, # reference speed
     type = DriveManeuver.TYPE_PATHFOLLOW,
     #type = DriveManeuver.TYPE_PARK,
     #type = DriveManeuver.TYPE_HALT,
@@ -49,6 +55,7 @@ def main():
     )
   # publish maneuver message
   maneuverPub.publish(maneuver)
+  rospy.sleep(2.0)
 
 if __name__ == "__main__":
   main()
