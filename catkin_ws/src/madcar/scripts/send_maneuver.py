@@ -49,7 +49,7 @@ def main():
     type = DriveManeuver.TYPE_PATHFOLLOW,
     #type = DriveManeuver.TYPE_PARK,
     #type = DriveManeuver.TYPE_HALT,
-    xManeuverEnd = -1.0, # target parking position
+    xManeuverEnd = 1.0, # target parking position
     lapCount = 0,
     disableLaneMonitor = False
     )
