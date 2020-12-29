@@ -68,6 +68,15 @@ track = mbc_circle_create(track, 0.5 * P_width, 0.5 * pi, P_width);
 track = mbc_track_display(track, 0.1, [ 0 a1total 0 a2total ]);
 path = track.center;
 
+%% Path for Lap Statistics
+lappath = track.center;
+P_lap_breakslen = uint32(length(lappath.points));
+P_lap_points = zeros(SPLINE.Elements(2).Dimensions); 
+P_lap_points(:,1:length(lappath.points)) = lappath.points;
+P_lap_coefs = zeros(SPLINE.Elements(3).Dimensions);
+P_lap_coefs(1:length(lappath.pp.coefs),:) = lappath.pp.coefs;
+P_lap_segments = uint32(zeros(SPLINE.Elements(4).Dimensions)); 
+
 %% Workspace variables for reference track generation in Simulink
 P_w_breakslen = uint32(length(path.points));
 P_w_points = zeros(SPLINE.Elements(2).Dimensions); 
