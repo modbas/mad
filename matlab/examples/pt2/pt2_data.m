@@ -9,6 +9,7 @@ clear variables; % clear workspace
 P_T = 1e-3; % time constant of system with no damping [ s ]
 P_D = 0.3; % damping constant [ 1 ]
 P_k = 1; % gain [ 1 ]
+
 P_x0 = 0; % initial position [ 1 ]
 P_v0 = 0; % initial speed [ 1/s ]
 

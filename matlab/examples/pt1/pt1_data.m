@@ -11,3 +11,5 @@ P_k = 1; % gain [ 1 ]
 P_x0 = 0; % initial value capacity voltage [ V ]
 
 P_dt = 10e-6; % step size ODE solver [ s ]   
+
+P_Ta = 5e-6; % sample time of discrete PT1 [ s ]
