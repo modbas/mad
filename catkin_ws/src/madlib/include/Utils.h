@@ -34,8 +34,8 @@ namespace modbas {
  * @brief The Utils struct
  */
 struct Utils {
-  constexpr static float pi { 3.141592653589793F }; // pi in float precision
-  constexpr static double piDbl { 3.141592653589793 }; // pi in double precision
+  constexpr static float pi { M_PIf32 }; // pi in float precision
+  constexpr static double piDbl { M_PI }; // pi in double precision
 
   /**
    * @brief deg2rad converts degrees to rad

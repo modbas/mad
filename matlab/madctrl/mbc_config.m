@@ -21,7 +21,7 @@ function config = mbc_config()
 % You should have received a copy of the GNU General Public License
 % along with Mini-Auto-Drive.  If not, see <http://www.gnu.org/licenses/>.
 
-config.track.debug = 1;
+config.track.debug = 0;
 config.track.color = 'k';
 config.track.centercolor = 'w';
 config.track.centerwidth = 1;

@@ -10,6 +10,7 @@ add_compile_options(-Wall -std=c++14)
 find_package(catkin REQUIRED COMPONENTS
   roscpp
 )
+find_package(Eigen3 REQUIRED)
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
@@ -20,7 +21,8 @@ find_package(catkin REQUIRED COMPONENTS
 ## See http://ros.org/doc/api/catkin/html/user_guide/setup_dot_py.html
 # catkin_python_setup()
 
-################################################
+################################ifndef _EKF_H
+#define _EKF_H#################
 ## Declare ROS messages, services and actions ##
 ################################################
 

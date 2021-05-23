@@ -41,16 +41,15 @@ static void createCornerCurve(modbas::Track& track, std::shared_ptr<modbas::Trac
 {
   // circle
   //  const float r { 0.26F }; // radius of driving circles [ m ]
-  //  track.addSegment(std::shared_ptr<modbas::CircleSegment>(
-  //          new modbas::CircleSegment(pose, width, r, 0.5F * modbas::Utils::pi)));
+  //  track.addSegment(std::make_shared<modbas::CircleSegment>(
+  //          new modbas::CircleSegment(pose, width, r, 0.5F * modbas::Utils::pi));
 
   // clothoids
-  track.addSegment(std::shared_ptr<modbas::ClothoidSegment>(
-                     new modbas::ClothoidSegment(pose, width, a, turn * 0.25F * modbas::Utils::pi,
-                                                 modbas::ClothoidSegment::ClothoidType::CLOSING)));
-  track.addSegment(std::shared_ptr<modbas::ClothoidSegment>(
-                     new modbas::ClothoidSegment(pose, width, a, turn * 0.25F * modbas::Utils::pi,
-                                                 modbas::ClothoidSegment::ClothoidType::OPENING)));
+  track.addSegment(std::make_shared<modbas::ClothoidSegment>(pose, width, a, turn * 0.25F * modbas::Utils::pi,
+                                                 modbas::ClothoidSegment::ClothoidType::CLOSING));
+  track.addSegment(std::make_shared<modbas::ClothoidSegment>(
+                     pose, width, a, turn * 0.25F * modbas::Utils::pi,
+                                                 modbas::ClothoidSegment::ClothoidType::OPENING));
 }
 
 /**
@@ -66,7 +65,7 @@ static void computeCornerCurveSize(const float dx, const float width, const floa
 {
   modbas::Track track { 3.0F, 3.0F, dx };
   std::shared_ptr<modbas::TrackPose> pose {
-    new modbas::TrackPose(0.0F, 0.0F, 0.0F, 0.0F) };
+    std::make_shared<modbas::TrackPose>(0.0F, 0.0F, 0.0F, 0.0F) };
   track.addPose(pose);
   createCornerCurve(track, pose, width, a, turn);
   w1 = pose->s1;
@@ -122,17 +121,17 @@ int main(int argc, char* argv[])
   modbas::Track track { a1total, a2total, dx };
   track.initCircuit();
   std::shared_ptr<modbas::TrackPose> pose {
-    new modbas::TrackPose(0.0F, turn ? (a1total - (a1boundary + 0.5F * width)) : (a1boundary + 0.5F * width),
+    std::make_shared<modbas::TrackPose>(0.0F, turn ? (a1total - (a1boundary + 0.5F * width)) : (a1boundary + 0.5F * width),
                          a2boundary + 0.5F * a2, -0.5F * modbas::Utils::pi) };
   track.addPose(pose);
   // Straight 0 sequment
-  track.addSegment(std::shared_ptr<modbas::StraightSegment>(
-          new modbas::StraightSegment(pose, width, 0.5F * a2 - w1 - 0.5F * width)));
+  track.addSegment(std::make_shared<modbas::StraightSegment>(
+          pose, width, 0.5F * a2 - w1 - 0.5F * width));
   // start corner sequment 1 and 2
   createCornerCurve(track, pose, width, clothoidA, turnFloat);
   if (parkDisplacement > 0.0F) {
-    track.addSegment(std::shared_ptr<modbas::StraightSegment>(
-            new modbas::StraightSegment(pose, width, parkDisplacement)));
+    track.addSegment(std::make_shared<modbas::StraightSegment>(
+            pose, width, parkDisplacement));
   }
   for (uint32_t i = 0U; i < parkCnt / 2U; ++i) {
     if (turn) {
@@ -144,16 +143,16 @@ int main(int argc, char* argv[])
     if (i == parkCnt / 2U - 1) {
       dist -= parkDisplacement;
     }
-    track.addSegment(std::shared_ptr<modbas::StraightSegment>(
-            new modbas::StraightSegment(pose, width, dist)));
+    track.addSegment(std::make_shared<modbas::StraightSegment>(
+            pose, width, dist));
   }
   createCornerCurve(track, pose, width, clothoidA, turnFloat);
-  track.addSegment(std::shared_ptr<modbas::StraightSegment>(
-          new modbas::StraightSegment(pose, width, a2 - 2.0F * w1 - width)));
+  track.addSegment(std::make_shared<modbas::StraightSegment>(
+          pose, width, a2 - 2.0F * w1 - width));
   createCornerCurve(track, pose, width, clothoidA, turnFloat);
   if (parkDisplacement > 0.0F) {
-    track.addSegment(std::shared_ptr<modbas::StraightSegment>(
-            new modbas::StraightSegment(pose, width, parkDisplacement)));
+    track.addSegment(std::make_shared<modbas::StraightSegment>(
+            pose, width, parkDisplacement));
   }
   for (uint32_t i = parkCnt / 2U; i < parkCnt; ++i) {
     if (turn) {
@@ -165,12 +164,12 @@ int main(int argc, char* argv[])
     if (i == parkCnt - 1) {
       dist -= parkDisplacement;
     }
-    track.addSegment(std::shared_ptr<modbas::StraightSegment>(
-                  new modbas::StraightSegment(pose, width, dist)));
+    track.addSegment(std::make_shared<modbas::StraightSegment>(
+                  pose, width, dist));
   }
   createCornerCurve(track, pose, width, clothoidA, turnFloat);
-  track.addSegment(std::shared_ptr<modbas::StraightSegment>(
-          new modbas::StraightSegment(pose, width, 0.5F * a2 - w1 - 0.5F * width)));
+  track.addSegment(std::make_shared<modbas::StraightSegment>(
+          pose, width, 0.5F * a2 - w1 - 0.5F * width));
 
   if (!track.finalizeCircuit()) {
     ROS_ERROR("finalizing lap failed");
@@ -178,10 +177,10 @@ int main(int argc, char* argv[])
 
   // parking spaces
   for (uint32_t i = 0U; i < parkCnt; ++i) {
-    track.addSegment(std::shared_ptr<modbas::CircleSegment>(
-            new modbas::CircleSegment(parkPose.at(i), parkWidth, parkRadius, turnFloat * parkAngle, modbas::TrackSegment::RoadType::ONELANE)));
-    track.addSegment(std::shared_ptr<modbas::StraightSegment>(
-            new modbas::StraightSegment(parkPose.at(i), parkWidth, parkLength, modbas::TrackSegment::RoadType::PARKING)));
+    track.addSegment(std::make_shared<modbas::CircleSegment>(
+            parkPose.at(i), parkWidth, parkRadius, turnFloat * parkAngle, modbas::TrackSegment::RoadType::ONELANE));
+    track.addSegment(std::make_shared<modbas::StraightSegment>(
+            parkPose.at(i), parkWidth, parkLength, modbas::TrackSegment::RoadType::PARKING));
   }
 
   // Start ROS node

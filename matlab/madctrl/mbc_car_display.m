@@ -90,14 +90,14 @@ set(wheel, 'YData', [ yf-w*c-l*s; yf-w*c+l*s; yf+w*c+l*s; yf+w*c-l*s ]);
 %% Velocity vector
 s = sin(psi);
 c = cos(psi);
-l = 0.5 * v;
+l = 0.2 * v;
 set(velocity, 'XData', [ s1; s1+l*c; s1+l*c; s1 ]);
 set(velocity, 'YData', [ s2; s2+l*s; s2+l*s; s2 ]);
 
 %% Reference velocity vector
 s = sin(wpsi);
 c = cos(wpsi);
-l = 0.5 * wv;
+l = 0.2 * wv;
 set(refvelocity, 'XData', [ ws1; ws1+l*c; ws1+l*c; ws1 ]);
 set(refvelocity, 'YData', [ ws2; ws2+l*s; ws2+l*s; ws2 ]);
 

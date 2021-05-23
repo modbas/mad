@@ -15,8 +15,7 @@ def main():
   if len(sys.argv) > 1:
     vmax = float(sys.argv[1])
   else:
-    vmax = 0.0
-  print(vmax)
+    vmax = 0.5
   # create ROS node
   rospy.init_node('send_maneuver')
   # wait for track_node

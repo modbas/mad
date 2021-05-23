@@ -86,7 +86,7 @@ public:
     // wheel base [ m ]
     const float l { 99e-3F }; //{ 0.260F };
     // minimum speed [ m/s ]
-    const float speedMin { 0.15F };
+    const float speedMin { 0.2F };
     // maximum speed [ m/s ]
     float speedMax { k };
     // maximum speed limit [ m/s ]
@@ -106,13 +106,15 @@ public:
     const float lf { 49e-3F }; // distance COG to front axle [ m ]
     const float lr { 50e-3F }; // distance COG to rear axle [ m ]
 
-    // tyre coefficients of Pacejka Model (Magic Formula
-    const float Br { 0.0014F }; // rear: stiffness factor
-    const float Cr { 16.398F }; // rear: shape factor
-    const float Dr { 135.9653F }; // rear: peak value
-    const float Bf { 0.025F }; // front: stiffness factor
-    const float Cf { 114.3442F }; // front: shape factor
-    const float Df { 0.8136F }; // front: peak value
+    // tyre coefficients of Pacejka Model (Magic Formula)
+    const float Br { 0.7F }; // rear: stiffness factor
+    const float Cr { 2.0F }; // rear: shape factor
+    const float Dr { 2.5F }; // rear: peak value
+    const float Er { -0.05F }; // rear: shape factor
+    const float Bf { 0.7F }; // front: stiffness factor
+    const float Cf { 2.0F }; // front: shape factor
+    const float Df { 2.0F }; // front: peak value
+    const float Ef { -0.1F }; // front: shape factor
 
     // lateral control
     const float lateralAccMax { 3.0F }; // maximum lateral acceleration [ m/s^2 ]

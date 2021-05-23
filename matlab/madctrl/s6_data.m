@@ -3,7 +3,7 @@
 %
 % System Parameters
 %
-% Copyright (c) 2020 N. Heining, Uwe Ingelfinger, Frank Traenkle
+% Copyright (c) 2020 Frank Traenkle
 % http://www.modbas.de
 %
 % This file is part of Mini-Auto-Drive.

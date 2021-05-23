@@ -39,13 +39,16 @@ P_p_v_min = 0.15; % speed threshold to switch from dynamics model to
 P_p_m = 132e-3; % mass [ kg ]
 P_p_J = 192e-6; % moment of inertia (yaw) [ kg*m^2 ]
 
-%% Magic Formula Coefficient
-P_p_Br = 0.0014;
-P_p_Cr = 16.398;
-P_p_Dr = 135.9653;
-P_p_Bf = 0.025;
-P_p_Cf = 114.3442;
-P_p_Df = 0.8136;
+%% Magic Formula Coefficients
+P_p_Br = 0.7;
+P_p_Cr = 2;
+P_p_Dr = 2.5;
+P_p_Er = -0.05;
+P_p_Bf = 0.7;
+P_p_Cf = 2;
+P_p_Df = 2;
+P_p_Ef = -0.1;
+
 
 %% Longitudinal Dynamics
 
@@ -186,6 +189,7 @@ ManeuverTypeHalt = uint8(0);
 ManeuverTypePark = uint8(1);
 ManeuverTypeCharge = uint8(2);
 ManeuverTypePathFollow = uint8(3);
+ManeuverTypeRace = uint8(4);
 elems(3) = Simulink.BusElement;
 elems(3).Name = 'xManeuverEnd';
 elems(4) = Simulink.BusElement;
