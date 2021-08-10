@@ -78,9 +78,6 @@ Simulink, Control System Toolbox, Curve Fitting Toolbox
 2. Clone this GitHub repository<br/>
 `git clone https://github.com/modbas/mad`
 3. Start MATLAB
-4. Add `mad/matlab/realtime_pacer` to `matlabpath`<br/>
-`addpath mad/matlab/realtime_pacer`<br/>
-`savepath`
-5. Change to MAD directory<br/>
+4. Change to MAD directory<br/>
 `cd mad/matlab/madctrl`
-6. Open and simulate `s6_template.slx`
+5. Open and simulate `s6_template.slx`
