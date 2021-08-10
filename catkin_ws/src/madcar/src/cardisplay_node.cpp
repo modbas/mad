@@ -74,7 +74,7 @@ public:
     ros::Time time { ros::Time::now() };
 
     // TF broadcaster
-    static visualization_msgs::Marker::_ns_type ns = node.getNamespace();
+    static visualization_msgs::Marker::_ns_type ns = carShortName();
     static tf::TransformBroadcaster broadcaster;
     tf::Transform statesTf;
 //    if (maneuverStateMsg.state == maneuverStateMsg.STATE_LOCATING) {
@@ -289,13 +289,13 @@ private:
       marker.pose.orientation.y = 0.0;
       marker.pose.orientation.z = 0.0;
       marker.pose.orientation.w = 1.0;
-      marker.scale.x = 0.1;
-      marker.scale.y = 0.1;
+      marker.scale.x = 0.03;
+      marker.scale.y = 0.03;
       marker.scale.z = 0.02;
       marker.color.r = colorRGB[0];
       marker.color.g = colorRGB[1];
       marker.color.b = colorRGB[2];
-      marker.color.a = 0.8F;
+      marker.color.a = 0.9F;
       marker.lifetime = ros::Duration();
   }
 
@@ -347,8 +347,9 @@ private:
    */
   void createMarkers()
   {
+    const std::string ns = carShortName();
     visualization_msgs::Marker markerArrow;
-    createCarArrowMarker(markerArrow, node.getNamespace(), 0, colorRGB);
+    createCarArrowMarker(markerArrow, ns, 0, colorRGB);
     markerArrow.color.r = 1.0F;
     markerArrow.color.g = 1.0F;
     markerArrow.color.b = 1.0F;
@@ -359,19 +360,19 @@ private:
     markerArray.markers.push_back(markerRefArrow);
 
     visualization_msgs::Marker markerName;
-    createCarNameMarker(markerName, node.getNamespace(), 2, colorRGB);
+    createCarNameMarker(markerName, ns, 2, colorRGB);
     markerArray.markers.push_back(markerName);
 
     visualization_msgs::Marker markerBox;
-    createCarBoxMarker(markerBox, node.getNamespace(), 3, colorRGB);
+    createCarBoxMarker(markerBox, ns, 3, colorRGB);
     markerArray.markers.push_back(markerBox);
 
     visualization_msgs::Marker markerManeuver;
-    createManeuverMarker(markerManeuver, node.getNamespace(), 4, colorRGB);
+    createManeuverMarker(markerManeuver, ns, 4, colorRGB);
     markerArray.markers.push_back(markerManeuver);
 
     visualization_msgs::Marker markerTargetSegment;
-    createTargetSegmentMarker(markerTargetSegment, node.getNamespace(), 5, colorRGB);
+    createTargetSegmentMarker(markerTargetSegment, ns, 5, colorRGB);
     markerArray.markers.push_back(markerTargetSegment);
 
     markerPub.publish(markerArray);
@@ -438,6 +439,11 @@ private:
     } else {
       return "";
     }
+  }
+
+  std::string carShortName()
+  {
+    return "car" + std::to_string(CarParameters::p()->carid);
   }
 
   std::string carName()

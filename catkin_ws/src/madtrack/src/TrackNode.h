@@ -233,7 +233,7 @@ private:
     leftSpline.pushPoint(0.0F, val3);
     std::array<float, Spline::dim> val4 { { track.s1, track.s2 } };
     rightSpline.pushPoint(track.s1, val4);
-    const ColorType bgColor { { 0.5, 1.0F, 0.0F, 1.0F } };
+    const ColorType bgColor { { 0.0, 1.0F, 0.0F, 1.0F } };
     createSegmentAreaMarkers(rightSpline, leftSpline, bgColor, -0.03F);
 
     // track
@@ -242,34 +242,34 @@ private:
     }
 
     // Logos
-    const float ds2 = 0.05F;
-    float s1 = 1.99F;
-    if (turn) {
-      s1 = 0.71F;
-    }
-    float s2 = 1.29F;
-    createLogoMarker("MINI-AUTO-DRIVE", s1, s2);
-    s2 -= 2.0F * ds2;
-    createLogoMarker("24 students + researchers", s1, s2);
-    s2 -= ds2;
-    createLogoMarker("Hochschule Heilbronn", s1, s2);
-    s2 -= ds2;
-    createLogoMarker("Automotive", s1, s2);
-    s2 -= ds2;
-    createLogoMarker("Systems Engineering", s1, s2);
-    s2 -= 2.0F * ds2;
-    createLogoMarker("frank.traenkle@hs-heilbronn.de", s1, s2);
+//    const float ds2 = 0.05F;
+//    float s1 = 1.99F;
+//    if (turn) {
+//      s1 = 0.71F;
+//    }
+//    float s2 = 1.29F;
+//    createLogoMarker("MINI-AUTO-DRIVE", s1, s2);
+//    s2 -= 2.0F * ds2;
+//    createLogoMarker("24 students + researchers", s1, s2);
+//    s2 -= ds2;
+//    createLogoMarker("Hochschule Heilbronn", s1, s2);
+//    s2 -= ds2;
+//    createLogoMarker("Automotive", s1, s2);
+//    s2 -= ds2;
+//    createLogoMarker("Systems Engineering", s1, s2);
+//    s2 -= 2.0F * ds2;
+//    createLogoMarker("frank.traenkle@hs-heilbronn.de", s1, s2);
 
-    s1 = 0.7F;
-    if (turn) {
-      s1 = 2.0F;
-    }
-    s2 = 0.85F;
-    createLogoMarker("Connect to parking system ...", s1, s2);
-    s2 -= 2.0F * ds2;
-    createLogoMarker("https://mad2.te1.hs-heilbronn.de", s1, s2);
-    s2 -= 3.0F * ds2;
-    createPinMarker("PIN 0000", s1, s2);
+//    s1 = 0.7F;
+//    if (turn) {
+//      s1 = 2.0F;
+//    }
+//    s2 = 0.85F;
+//    createLogoMarker("Connect to parking system ...", s1, s2);
+//    s2 -= 2.0F * ds2;
+//    createLogoMarker("https://mad2.te1.hs-heilbronn.de", s1, s2);
+//    s2 -= 3.0F * ds2;
+//    createPinMarker("PIN 0000", s1, s2);
 //    createLogoMarker("start [Alt+s]", s1, s2);
 //    s2 -= ds2;
 //    createLogoMarker("stop [Alt+x]", s1, s2);
