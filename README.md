@@ -55,7 +55,7 @@ MATLAB/Simulink/Stateflow.
 * Exercises in ROS / C++ / MATLAB/Simulink
 
 ## C++/ROS Installation
-1. Install `ros-kinetik-desktop-full` or `ros-melodic-desktop-full`<br/>
+1. Install `ros-kinetik-desktop-full` or `ros-melodic-desktop-full` or `ros-noetic-desktop-full`<br/>
 See [http://wiki.ros.org/melodic/Installation/Ubuntu](http://wiki.ros.org/melodic/Installation/Ubuntu)
 2. Install LTTng<br/>
 `sudo apt install lttng-tools liblttng-ctl-dev liblttng-ust-dev`
