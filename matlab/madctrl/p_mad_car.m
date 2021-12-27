@@ -76,7 +76,7 @@ P_p_uTt = 60e-3; % input dead time [ s ]
 P_p_un_max = 1; % maximum motor input signal [ 1 ] 
 P_p_un_min = -P_p_un_max; % minimum motor input signal [ 1 ]
 P_p_un_slow_max = 0.328; % maximum motor input signal [ 1 ] 
-P_p_un_slow_min = -P_p_un_max; % minimum motor input signal [ 1 ]
+P_p_un_slow_min = -P_p_un_slow_max; % minimum motor input signal [ 1 ]
 P_p_un_friction_pos = 0.2; % dead zone
 P_p_un_friction_neg = -P_p_un_friction_pos; % dead zone
 
