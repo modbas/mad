@@ -18,8 +18,8 @@ virtually in MATLAB/Simulink/Stateflow.
 Please read the textbook
 [Frank Tränkle (2021). Modellbasierte Entwicklung mechatronischer Systeme:
 mit Software- und Simulationsbeispielen für autonomes
-Fahren. DeGruyter Studium](https://www.degruyter.com/document/doi/10.1515/9783110723526/html) containing the theory and the examples of
-the software functions for motion control in autonomous driving.
+Fahren. DeGruyter Studium](https://www.degruyter.com/document/doi/10.1515/9783110723526/html) containing the theory and examples of
+software functions for motion control in autonomous driving.
 
 ## MAD Features
 * Autonomous driving in 1:24 scale
