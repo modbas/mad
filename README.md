@@ -15,11 +15,12 @@ MATLAB(R)/Simulink(R)/Stateflow(R).
 MAD runs on ROS or ROS2 on Linux with or without Preempt-RT or
 virtually in MATLAB/Simulink/Stateflow.
 
-Contact frank.traenkle(at)hs-heilbronn.de for course material /
-tutorial<br/>
-in order to learn how to develop simulation models and
-software functions for self-driving cars in ROS / C++14 /
-MATLAB/Simulink/Stateflow.
+Please read the companion book
+[https://www.degruyter.com/document/doi/10.1515/9783110723526/html](Frank
+Tränkle (2021). Modellbasierte Entwicklung mechatronischer Systeme:
+mit Software- und Simulationsbeispielen für autonomes
+Fahren. DeGruyter Studium) containing the theory and the examples of
+the software functions for autonomous driving.
 
 ## MAD Features
 * Autonomous driving in 1:24 scale
