@@ -139,13 +139,13 @@ include_directories(
 # add_dependencies(modelcar ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Declare a C++ executable
-#add_executable(carsim_node
-#  src/carsim_node.cpp
-#  )
+add_executable(carsim_node
+  src/carsim_node.cpp
+  )
 
-#add_executable(carctrl_node
-#  src/carctrl_node.cpp
-#  )
+add_executable(carctrl_node
+  src/carctrl_node.cpp
+  )
 
 add_executable(carlocate_node
   src/carlocate_node.cpp src/carlocate-tp.cpp
@@ -161,9 +161,9 @@ add_executable(cardisplay_node
 
 ## Add cmake target dependencies of the executable
 ## same as for the library above
-#add_dependencies(carsim_node madlib madmsgs_gencpp)
+add_dependencies(carsim_node madlib madmsgs_gencpp)
 
-#add_dependencies(carctrl_node madlib madmsgs_gencpp)
+add_dependencies(carctrl_node madlib madmsgs_gencpp)
 
 add_dependencies(carlocate_node madlib madmsgs_gencpp)
 
@@ -172,13 +172,13 @@ add_dependencies(carlocate_node madlib madmsgs_gencpp)
 add_dependencies(cardisplay_node madlib madmsgs_gencpp)
 
 ## Specify libraries to link a library or executable target against
-#target_link_libraries(carsim_node
-#   ${catkin_LIBRARIES}
-#)
+target_link_libraries(carsim_node
+   ${catkin_LIBRARIES}
+)
 
-#target_link_libraries(carctrl_node
-#   ${catkin_LIBRARIES}
-#)
+target_link_libraries(carctrl_node
+   ${catkin_LIBRARIES}
+)
 
 target_link_libraries(carlocate_node
    ${catkin_LIBRARIES} lttng-ust dl

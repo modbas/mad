@@ -12,10 +12,14 @@ from madmsgs.srv import TrackGetWaypoints
 from madmsgs.msg import DriveManeuver
 
 def main():
+  type = DriveManeuver.TYPE_PATHFOLLOW
+  vmax = 0.5
+  xref = 1.0
   if len(sys.argv) > 1:
     vmax = float(sys.argv[1])
-  else:
-    vmax = 0.5
+    if len(sys.argv) > 2:
+        xref = float(sys.argv[2])
+        type = DriveManeuver.TYPE_PARK
   # create ROS node
   rospy.init_node('send_maneuver')
   # wait for track_node
@@ -45,10 +49,10 @@ def main():
     splineCoefs2 = waypointsResp.splineCoefs2,
     periodic = True,
     vmax = vmax, # reference speed
-    type = DriveManeuver.TYPE_PATHFOLLOW,
+    type = type,
     #type = DriveManeuver.TYPE_PARK,
     #type = DriveManeuver.TYPE_HALT,
-    xManeuverEnd = 1.0, # target parking position
+    xManeuverEnd = xref, # target parking position
     lapCount = 0,
     disableLaneMonitor = False
     )
