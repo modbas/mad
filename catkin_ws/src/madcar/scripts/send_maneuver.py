@@ -15,11 +15,15 @@ def main():
   type = DriveManeuver.TYPE_PATHFOLLOW
   vmax = 0.5
   xref = 1.0
+  segmentSequenceArg = [ 0 ]
   if len(sys.argv) > 1:
     vmax = float(sys.argv[1])
     if len(sys.argv) > 2:
         xref = float(sys.argv[2])
-        type = DriveManeuver.TYPE_PARK
+        #type = DriveManeuver.TYPE_PARK
+        if len(sys.argv) > 3:
+            segmentSequenceArg = [ int(item) for item in sys.argv[3].split(',') ]
+  print segmentSequenceArg
   # create ROS node
   rospy.init_node('send_maneuver')
   # wait for track_node
@@ -32,7 +36,8 @@ def main():
   waypointsResp = getWayPoints(
     dx = 0.1, # sampling stepsize
     alpha = 0.5, # orthogonal coordinate of lane (0 = left, 1 = right, 0.5 = center)
-    segmentSequence = [ 0 ] # get circular path containing segment 0
+    segmentSequence = segmentSequenceArg # get circular path containing segment 0
+    #segmentSequence = [ 0 ] # get circular path containing segment 0
     #segmentSequence = [ 0, 1, 2, 3, 19, 20 ] # get path containing sequence of segments
     #segmentSequence = [ 11, 12, 13, 14, 15, 16, 17 ] # get path containing sequence of segments
     #segmentSequence = [ 16, 18, 19, 10, 11, 12, 13, 0, 1 ]
