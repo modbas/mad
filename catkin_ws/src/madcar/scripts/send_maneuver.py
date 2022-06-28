@@ -23,7 +23,7 @@ def main():
         #type = DriveManeuver.TYPE_PARK
         if len(sys.argv) > 3:
             segmentSequenceArg = [ int(item) for item in sys.argv[3].split(',') ]
-  print segmentSequenceArg
+  print(segmentSequenceArg)
   # create ROS node
   rospy.init_node('send_maneuver')
   # wait for track_node
