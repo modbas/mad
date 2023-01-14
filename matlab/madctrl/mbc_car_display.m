@@ -40,6 +40,7 @@ if nargin() < 12
     carid = 0;
 end
 
+figure(1);
 if isempty(config)
     config = mbc_config();
 end
